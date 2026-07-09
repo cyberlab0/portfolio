@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Mail, Send, Briefcase, Handshake, MessageSquareText } from "lucide-react";
-import { FaGithub, FaLinkedin, FaInstagram, FaYoutube, FaWhatsapp } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaYoutube, FaWhatsapp, FaDev, FaMediumM } from "react-icons/fa";
 import Link from "next/link";
 
 export default function ContactSection() {
@@ -12,6 +12,8 @@ export default function ContactSection() {
     { name: "Instagram", icon: FaInstagram, href: "https://www.instagram.com/michael_olowoselu/", color: "hover:text-pink-500" },
     { name: "YouTube", icon: FaYoutube, href: "https://youtube.com/@cyberlab0-p5v?si=kAKOIFbuVMCRqMyS", color: "hover:text-red-500" },
     { name: "WhatsApp", icon: FaWhatsapp, href: "https://wa.me/2348069599521", color: "hover:text-green-500" },
+    { name: "Dev.to", icon: FaDev, href: "https://dev.to/cyberlab0", color: "hover:text-white" },
+    { name: "Medium", icon: FaMediumM, href: "https://medium.com/@michaelolowoselu", color: "hover:text-white" },
   ];
 
   return (
@@ -83,7 +85,7 @@ export default function ContactSection() {
 
               <div className="pt-6 border-t border-slate-800">
                 <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">Digital Presence</h4>
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-4">
                   {socialLinks.map((link) => {
                     const Icon = link.icon;
                     return (
