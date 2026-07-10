@@ -20,6 +20,7 @@ export default function SentraLogShowcase() {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isZoomed, setIsZoomed] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -107,15 +108,19 @@ export default function SentraLogShowcase() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="absolute inset-0"
+                    className="absolute inset-0 cursor-zoom-in"
+                    onClick={() => setIsZoomed(true)}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img 
                       src={images[currentImageIndex].src} 
                       alt={images[currentImageIndex].title}
-                      className="w-full h-full object-cover object-left-top"
+                      className="w-full h-full object-cover object-left-top pointer-events-none"
+                      onContextMenu={(e) => e.preventDefault()}
+                      draggable={false}
+                      loading={currentImageIndex === 0 ? "eager" : "lazy"}
                     />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent pointer-events-none">
                       <h4 className="text-white font-bold">{images[currentImageIndex].title}</h4>
                       <p className="text-slate-300 text-sm">{images[currentImageIndex].desc}</p>
                     </div>
@@ -124,12 +129,12 @@ export default function SentraLogShowcase() {
 
                 {/* Carousel Controls */}
                 <div className="absolute inset-y-0 left-0 flex items-center">
-                  <button onClick={prevImage} className="p-2 m-2 rounded-full bg-black/50 text-white hover:bg-blue-600 transition-colors opacity-0 group-hover:opacity-100">
+                  <button onClick={prevImage} className="p-2 m-2 rounded-full bg-black/50 text-white hover:bg-blue-600 transition-colors opacity-0 group-hover:opacity-100 z-30">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
                   </button>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center">
-                  <button onClick={nextImage} className="p-2 m-2 rounded-full bg-black/50 text-white hover:bg-blue-600 transition-colors opacity-0 group-hover:opacity-100">
+                  <button onClick={nextImage} className="p-2 m-2 rounded-full bg-black/50 text-white hover:bg-blue-600 transition-colors opacity-0 group-hover:opacity-100 z-30">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
                   </button>
                 </div>
@@ -192,6 +197,42 @@ export default function SentraLogShowcase() {
           </div>
         </div>
       </div>
+
+      {/* Image Zoom Modal */}
+      <AnimatePresence>
+        {isZoomed && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsZoomed(false)}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm cursor-zoom-out"
+          >
+            <motion.div
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              className="relative max-w-7xl w-full aspect-[16/9] rounded-xl overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img 
+                src={images[currentImageIndex].src} 
+                alt={images[currentImageIndex].title}
+                className="w-full h-full object-contain pointer-events-none"
+                onContextMenu={(e) => e.preventDefault()}
+                draggable={false}
+              />
+              <button 
+                onClick={() => setIsZoomed(false)}
+                className="absolute top-4 right-4 p-2 bg-black/50 hover:bg-red-500 text-white rounded-full transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

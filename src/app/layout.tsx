@@ -12,6 +12,8 @@ const firaCode = Fira_Code({
   subsets: ["latin"],
 });
 
+import GlobalProtections from "./components/GlobalProtections";
+
 export const metadata: Metadata = {
   title: "Michael Olowoselu | SOC Analyst & Cybersecurity Engineer",
   description: "Portfolio of Michael Olowoselu, SOC Analyst, Cybersecurity Engineer, and Founder of SentraLog. Building intelligent security systems and AI-powered tools.",
@@ -26,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${firaCode.variable} dark scroll-smooth`}>
       <body className="min-h-screen bg-[#0B0F19] text-slate-100 font-sans flex flex-col selection:bg-blue-500/30 selection:text-blue-200">
+        <GlobalProtections />
         <div className="fixed inset-0 z-[-1] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-[#0B0F19] to-[#0B0F19]"></div>
         {children}
       </body>
