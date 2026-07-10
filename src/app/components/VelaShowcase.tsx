@@ -61,7 +61,7 @@ export default function VelaShowcase() {
             </h2>
             
             <p className="text-lg text-slate-400 leading-relaxed mb-8">
-              Stop managing your money in the dark. VELA is a next-generation, all-in-one financial ecosystem designed to automate your wealth, track your spending, and give you intelligent financial advice on demand. VELA doesn't just show you your money—it actively helps you grow it.
+              AI system that connects and automates digital life.
             </p>
 
             <div className="mb-8">

@@ -16,13 +16,13 @@ const MOCK_IPS = ["192.168.1.105", "10.0.0.42", "172.16.254.1", "45.22.19.8", "8
 const MOCK_EVENTS = [
   { type: "SUCCESS", message: "User login detected", ip: true },
   { type: "WARNING", message: "Suspicious attempt blocked", ip: true },
-  { type: "SUCCESS", message: "System scan complete", ip: false },
-  { type: "CRITICAL", message: "Malware signature matched in payload", ip: false },
+  { type: "SUCCESS", message: "System scan completed", ip: false },
+  { type: "CRITICAL", message: "Critical Alert: Malware signature matched", ip: false },
   { type: "INFO", message: "Firewall rules updated successfully", ip: false },
-  { type: "CRITICAL", message: "Unauthorized access attempt on port 22 (SSH)", ip: true },
-  { type: "WARNING", message: "Unusual outbound traffic spike", ip: true },
-  { type: "INFO", message: "Scheduled backup completed", ip: false },
-  { type: "CRITICAL", message: "SQL Injection payload detected in web traffic", ip: true },
+  { type: "CRITICAL", message: "Critical Alert: Unauthorized access on port 22", ip: true },
+  { type: "WARNING", message: "Suspicious outbound traffic spike", ip: true },
+  { type: "INFO", message: "System scan completed", ip: false },
+  { type: "CRITICAL", message: "Critical Alert: SQL Injection payload detected", ip: true },
 ];
 
 export default function LiveLogTerminal() {
@@ -59,22 +59,32 @@ export default function LiveLogTerminal() {
     
     return {
       id: Math.random().toString(36).substring(7),
-      timestamp: `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}.${now.getMilliseconds().toString().padStart(3, '0')}`,
+      timestamp: now.toISOString().replace('T', ' ').substring(0, 19),
       type: event.type as "INFO" | "WARNING" | "CRITICAL" | "SUCCESS",
       message: event.message,
       ip
     };
   }
 
-  const getTypeColor = (type: string) => {
+  function getTypeColor(type: string) {
     switch (type) {
       case "INFO": return "text-blue-400";
       case "WARNING": return "text-yellow-400";
-      case "CRITICAL": return "text-red-400";
+      case "CRITICAL": return "text-red-500";
       case "SUCCESS": return "text-green-400";
       default: return "text-slate-400";
     }
-  };
+  }
+
+  function getTypeLabel(type: string) {
+    switch (type) {
+      case "INFO": return "[i]";
+      case "WARNING": return "[⚠]";
+      case "CRITICAL": return "[✖]";
+      case "SUCCESS": return "[✔]";
+      default: return "[*]";
+    }
+  }
 
   return (
     <section id="demo" className="py-24 relative">
@@ -86,7 +96,7 @@ export default function LiveLogTerminal() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Live Activity Monitor</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Live Security Activity</h2>
           <div className="w-20 h-1 bg-green-500 mx-auto rounded-full mb-6"></div>
           <p className="text-slate-400 max-w-2xl mx-auto">
             A simulated view of the real-time log ingestion and threat analysis systems I build for SOC environments.
@@ -127,7 +137,7 @@ export default function LiveLogTerminal() {
               >
                 <span className="text-slate-500">[{log.timestamp}]</span>
                 <span className={`font-semibold ${getTypeColor(log.type)}`}>
-                  [{log.type}]
+                  {getTypeLabel(log.type)}
                 </span>
                 <span className="text-slate-300">
                   {log.message}

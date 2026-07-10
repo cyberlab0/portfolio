@@ -62,7 +62,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl md:text-2xl font-semibold text-blue-400 mb-4"
         >
-          Building AI-powered systems (SentraLog & Vela)
+          Founder of SentraLog | Building AI-powered security systems
         </motion.h2>
         
         <motion.p
@@ -71,7 +71,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-8"
         >
-          Real-time threat detection, intelligent monitoring, and automated solutions.
+          I design and build real-time threat detection systems, intelligent monitoring tools, and next-generation SIEM platforms.
         </motion.p>
 
         <motion.div 
@@ -106,7 +106,7 @@ export default function Hero() {
             href="#projects"
             className="group relative inline-flex items-center justify-center px-8 py-3 text-base font-medium text-slate-300 border border-slate-700 rounded-lg hover:text-white hover:border-purple-500/50 hover:bg-purple-500/10 transition-all hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] w-full sm:w-auto"
           >
-            Explore Projects <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            See My Work <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
 
           <Link

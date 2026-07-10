@@ -1,11 +1,35 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ShieldAlert, Activity, Database, Bell, ExternalLink, Monitor } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
 
 export default function SentraLogShowcase() {
+  const images = [
+    { src: '/sentralog/map.png', title: 'Global Threat Analytics', desc: 'Live geographical tracking of threat vectors and attack origins.' },
+    { src: '/sentralog/incident.png', title: 'Incident Narrative View', desc: 'Translates raw unstructured logs into chronological attack stories.' },
+    { src: '/sentralog/ueba.png', title: 'User Entity Behavior Analytics', desc: 'Zero Trust identity monitoring for impossible travel and abnormal access.' },
+    { src: '/sentralog/sandbox.png', title: 'Malware Detonation Sandbox', desc: 'Executes suspicious payloads in an isolated hypervisor.' },
+    { src: '/sentralog/intel.png', title: 'Threat Intel Scanner', desc: 'Scans IPs and executes automated containment playbooks instantly.' },
+    { src: '/sentralog/workspace.png', title: 'Virtual Analyst Workspace', desc: 'Secure isolated environment for investigating incidents.' },
+    { src: '/sentralog/gatekeeper.png', title: 'Super Admin Gatekeeper', desc: 'Intercepts logins and manages emergency bypass keys.' },
+    { src: '/sentralog/audit.png', title: 'Global Audit Tracking', desc: 'Tracks live locations, IPs, and actions of all dashboard users.' },
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  const nextImage = () => setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  const prevImage = () => setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+
   const features = [
     {
       title: "Threat Detection",
@@ -55,7 +79,7 @@ export default function SentraLogShowcase() {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Dashboard Mockup */}
+          {/* Dashboard Mockup - Replaced by Image Carousel */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -64,40 +88,49 @@ export default function SentraLogShowcase() {
             className="relative"
           >
             <div className="absolute inset-0 bg-blue-500/20 rounded-2xl blur-3xl transform -rotate-6"></div>
-            <div className="relative rounded-2xl bg-[#0F172A] border border-slate-700 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div className="relative rounded-2xl bg-[#0F172A] border border-slate-700 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] group">
               {/* Fake Window Header */}
-              <div className="bg-slate-800/80 px-4 py-3 flex items-center gap-2 border-b border-slate-700">
+              <div className="bg-slate-800/80 px-4 py-3 flex items-center gap-2 border-b border-slate-700 absolute top-0 left-0 right-0 z-20">
                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                <div className="ml-4 text-xs text-slate-400 font-mono">sentralog.dashboard / admin</div>
+                <div className="ml-4 text-xs text-slate-400 font-mono">sentralog.dashboard / {images[currentImageIndex].title}</div>
               </div>
               
-              {/* Fake Dashboard Body */}
-              <div className="p-6">
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700/50">
-                    <div className="text-xs text-slate-400 mb-1">Total Logs (24h)</div>
-                    <div className="text-2xl font-bold text-blue-400">1.2M</div>
-                  </div>
-                  <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700/50">
-                    <div className="text-xs text-slate-400 mb-1">Active Alerts</div>
-                    <div className="text-2xl font-bold text-red-400 animate-pulse">14</div>
-                  </div>
-                  <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700/50">
-                    <div className="text-xs text-slate-400 mb-1">System Health</div>
-                    <div className="text-2xl font-bold text-green-400">99.9%</div>
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="flex items-center gap-4 bg-slate-800/30 p-3 rounded border border-slate-700/30">
-                      <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                      <div className="flex-1 h-3 bg-slate-700 rounded-full w-1/3"></div>
-                      <div className="w-24 h-3 bg-slate-600 rounded-full"></div>
+              {/* Image Carousel */}
+              <div className="relative aspect-[16/9] mt-[45px] bg-slate-900 overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentImageIndex}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute inset-0"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img 
+                      src={images[currentImageIndex].src} 
+                      alt={images[currentImageIndex].title}
+                      className="w-full h-full object-cover object-left-top"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+                      <h4 className="text-white font-bold">{images[currentImageIndex].title}</h4>
+                      <p className="text-slate-300 text-sm">{images[currentImageIndex].desc}</p>
                     </div>
-                  ))}
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Carousel Controls */}
+                <div className="absolute inset-y-0 left-0 flex items-center">
+                  <button onClick={prevImage} className="p-2 m-2 rounded-full bg-black/50 text-white hover:bg-blue-600 transition-colors opacity-0 group-hover:opacity-100">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
+                  </button>
+                </div>
+                <div className="absolute inset-y-0 right-0 flex items-center">
+                  <button onClick={nextImage} className="p-2 m-2 rounded-full bg-black/50 text-white hover:bg-blue-600 transition-colors opacity-0 group-hover:opacity-100">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+                  </button>
                 </div>
               </div>
             </div>
