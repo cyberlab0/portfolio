@@ -14,6 +14,7 @@ export default function SentraLogShowcase() {
     { src: '/sentralog/sandbox.png', title: 'Malware Detonation Sandbox', desc: 'Executes suspicious payloads in an isolated hypervisor.' },
     { src: '/sentralog/intel.png', title: 'Threat Intel Scanner', desc: 'Scans IPs and executes automated containment playbooks instantly.' },
     { src: '/sentralog/workspace.png', title: 'Virtual Analyst Workspace', desc: 'Secure isolated environment for investigating incidents.' },
+    { src: '/sentralog/tenant.png', title: 'Multi-Tenant Organizations', desc: 'Manage and monitor separate organizations from a single pane of glass.' },
     { src: '/sentralog/gatekeeper.png', title: 'Super Admin Gatekeeper', desc: 'Intercepts logins and manages emergency bypass keys.' },
     { src: '/sentralog/audit.png', title: 'Global Audit Tracking', desc: 'Tracks live locations, IPs, and actions of all dashboard users.' },
   ];
