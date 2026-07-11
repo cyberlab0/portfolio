@@ -2,15 +2,19 @@
 
 import { motion } from "framer-motion";
 import { Mail, Send, Briefcase, Handshake, MessageSquareText } from "lucide-react";
-import { FaGithub, FaLinkedin, FaInstagram, FaYoutube, FaWhatsapp, FaDev, FaMediumM } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaYoutube, FaWhatsapp, FaDev, FaMediumM, FaFacebook, FaTiktok } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 
 export default function ContactSection() {
   const socialLinks = [
     { name: "GitHub", icon: FaGithub, href: "https://github.com/cyberlab0", color: "hover:text-white" },
     { name: "LinkedIn", icon: FaLinkedin, href: "https://www.linkedin.com/in/michael-olowoselu-727871394", color: "hover:text-blue-500" },
+    { name: "X", icon: FaXTwitter, href: "https://x.com/cyberlab222?s=11", color: "hover:text-white" },
     { name: "Instagram", icon: FaInstagram, href: "https://www.instagram.com/michael_olowoselu/", color: "hover:text-pink-500" },
     { name: "YouTube", icon: FaYoutube, href: "https://youtube.com/@cyberlab0-p5v?si=kAKOIFbuVMCRqMyS", color: "hover:text-red-500" },
+    { name: "Facebook", icon: FaFacebook, href: "https://www.facebook.com/share/1EQEoe4m1x/?mibextid=wwXIfr", color: "hover:text-blue-600" },
+    { name: "TikTok", icon: FaTiktok, href: "https://vt.tiktok.com/ZSX8bqj1v/", color: "hover:text-pink-600" },
     { name: "WhatsApp", icon: FaWhatsapp, href: "https://wa.me/2348069599521", color: "hover:text-green-500" },
     { name: "Dev.to", icon: FaDev, href: "https://dev.to/cyberlab0", color: "hover:text-white" },
     { name: "Medium", icon: FaMediumM, href: "https://medium.com/@michaelolowoselu", color: "hover:text-white" },
