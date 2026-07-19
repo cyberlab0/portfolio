@@ -13,11 +13,35 @@ const firaCode = Fira_Code({
 });
 
 import GlobalProtections from "./components/GlobalProtections";
+import { StructuredData } from "./components/StructuredData";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://portfolio-v0rz.onrender.com'),
   title: "Michael Olowoselu | SOC Analyst & Cybersecurity Engineer",
   description: "Portfolio of Michael Olowoselu, SOC Analyst, Cybersecurity Engineer, and Founder of SentraLog. Building intelligent security systems and AI-powered tools.",
   keywords: ["SOC Analyst", "Cybersecurity Engineer", "SIEM Developer", "Michael Olowoselu", "SentraLog", "Infosec"],
+  openGraph: {
+    title: "Michael Olowoselu | SOC Analyst & Cybersecurity Engineer",
+    description: "Portfolio of Michael Olowoselu, SOC Analyst, Cybersecurity Engineer, and Founder of SentraLog.",
+    url: 'https://portfolio-v0rz.onrender.com',
+    siteName: 'Michael Olowoselu Portfolio',
+    images: [
+      {
+        url: '/favicon.ico',
+        width: 256,
+        height: 256,
+        alt: 'Michael Olowoselu Logo',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Michael Olowoselu | Cybersecurity Engineer",
+    description: "SOC Analyst, Cybersecurity Engineer, and Founder of SentraLog.",
+    images: ['/favicon.ico'],
+  },
 };
 
 export default function RootLayout({
@@ -28,6 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${firaCode.variable} dark scroll-smooth`}>
       <body className="min-h-screen bg-[#0B0F19] text-slate-100 font-sans flex flex-col selection:bg-blue-500/30 selection:text-blue-200">
+        <StructuredData />
         <GlobalProtections />
         <div className="fixed inset-0 z-[-1] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-[#0B0F19] to-[#0B0F19]"></div>
         {children}

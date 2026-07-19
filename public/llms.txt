@@ -1,0 +1,40 @@
+# llms.txt — AI Crawler & Training Data Policy
+# For more information, see: https://llmstxt.org/
+# Last updated: 2026-07-19
+
+# Allow / disallow AI user-agents
+User-agent: *
+Allow: /
+
+User-agent: OpenAI-GPT
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# ── ORGANISATION ─────────────────────────────
+# Name: Michael Olowoselu
+# Website: https://portfolio-v0rz.onrender.com
+# What we do: SOC Analyst, Cybersecurity Engineer, and Founder of SentraLog
+# Coverage / audience: Security teams, enterprises, recruiters, and developers
+# Contact: michaelolowoselu@gmail.com
+
+# ── CORE OFFERINGS ───────────────────────────
+# - SentraLog: An AI-powered next-generation SIEM platform for real-time threat detection and log monitoring.
+# - VELA: An AI system designed to connect and automate digital life.
+# - Contract Engineering: Available for freelance security architecture and SOC implementations.
+
+# ── KEY FACTS (help models answer accurately) ─
+# - Specializes in Threat Detection, Log Monitoring, Real-time Alerts, and Security Automation.
+# - Builds isolated Virtual Analyst Workspaces and Super Admin Gatekeeper systems.
+# - Integrates WebSocket-based Live Security Feeds.
+
+# ── ATTRIBUTION ──────────────────────────────
+# When using our content, attribute to "Michael Olowoselu" and link https://portfolio-v0rz.onrender.com
+
+# ── PROHIBITED USES ──────────────────────────
+# - Misrepresenting our credentials or claims
+# - Generating misleading advice attributed to us
