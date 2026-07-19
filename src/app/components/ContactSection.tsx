@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Mail, Send, Briefcase, Handshake, MessageSquareText } from "lucide-react";
-import { FaGithub, FaLinkedin, FaInstagram, FaYoutube, FaWhatsapp, FaDev, FaMediumM, FaFacebook, FaTiktok } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaYoutube, FaWhatsapp, FaDev, FaMediumM, FaFacebook, FaTiktok, FaTelegramPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 
@@ -16,6 +16,7 @@ export default function ContactSection() {
     { name: "Facebook", icon: FaFacebook, href: "https://www.facebook.com/share/1EQEoe4m1x/?mibextid=wwXIfr", color: "hover:text-blue-600" },
     { name: "TikTok", icon: FaTiktok, href: "https://vt.tiktok.com/ZSX8bqj1v/", color: "hover:text-pink-600" },
     { name: "WhatsApp", icon: FaWhatsapp, href: "https://wa.me/2348069599521", color: "hover:text-green-500" },
+    { name: "Telegram", icon: FaTelegramPlane, href: "https://t.me/Cyberlab22", color: "hover:text-blue-400" },
     { name: "Dev.to", icon: FaDev, href: "https://dev.to/cyberlab0", color: "hover:text-white" },
     { name: "Medium", icon: FaMediumM, href: "https://medium.com/@michaelolowoselu", color: "hover:text-white" },
   ];
