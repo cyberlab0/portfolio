@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import LiveTerminal from "./components/LiveTerminal";
 import AboutSection from "./components/AboutSection";
 import SentraLogShowcase from "./components/SentraLogShowcase";
 import VelaShowcase from "./components/VelaShowcase";
@@ -8,7 +9,6 @@ import LiveLogTerminal from "./components/LiveLogTerminal";
 import BlogPreview from "./components/BlogPreview";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
-import FloatingChat from "./components/FloatingChat";
 import SystemStatusBadge from "./components/SystemStatusBadge";
 
 export default function Home() {
@@ -18,6 +18,7 @@ export default function Home() {
       <main className="flex-grow flex flex-col relative">
         <Navbar />
         <Hero />
+        <LiveTerminal />
         <AboutSection />
         <SentraLogShowcase />
         <VelaShowcase />
@@ -27,7 +28,6 @@ export default function Home() {
         <ContactSection />
         <Footer />
       </main>
-      <FloatingChat />
     </>
   );
 }

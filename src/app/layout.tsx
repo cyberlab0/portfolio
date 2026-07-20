@@ -15,6 +15,8 @@ const firaCode = Fira_Code({
 import GlobalProtections from "./components/GlobalProtections";
 import { StructuredData } from "./components/StructuredData";
 import CookieConsent from "./components/CookieConsent";
+import BootScreen from "./components/BootScreen";
+import AIAssistant from "./components/AIAssistant";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://portfolio-v0rz.onrender.com'),
@@ -53,6 +55,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${firaCode.variable} dark scroll-smooth`}>
       <body className="min-h-screen bg-[#0B0F19] text-slate-100 font-sans flex flex-col selection:bg-blue-500/30 selection:text-blue-200">
+        <BootScreen />
+        <AIAssistant />
         <StructuredData />
         <GlobalProtections />
         <CookieConsent />
