@@ -14,7 +14,7 @@ export default function MissionTimeline() {
       bg: "bg-blue-500/10"
     },
     {
-      date: "2025",
+      date: "2026",
       title: "Founded SentraLog",
       description: "Architected a real-time SIEM from scratch focused on raw speed and analyst workflows.",
       icon: Target,

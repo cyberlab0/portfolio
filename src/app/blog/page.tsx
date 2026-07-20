@@ -12,21 +12,21 @@ export default function BlogPage() {
     {
       id: "001",
       title: "How I Built My SIEM Tool",
-      date: "2026-07-12",
+      date: "2026",
       excerpt: "A deep dive into the architecture and challenges of building SentraLog from scratch using modern web technologies.",
       category: "ENGINEERING"
     },
     {
       id: "002",
       title: "The Future of AI Automations",
-      date: "2026-06-28",
+      date: "2026",
       excerpt: "How neural networks and intelligent agents are completely revolutionizing security engineering and automated workflows.",
       category: "AI_ENGINEERING"
     },
     {
       id: "003",
       title: "How Threat Detection Works",
-      date: "2026-05-15",
+      date: "2026",
       excerpt: "Understanding the underlying mechanics of pattern matching, anomaly detection, and heuristic analysis in cybersecurity.",
       category: "TECHNICAL"
     }
@@ -51,7 +51,7 @@ export default function BlogPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[#0a0f1d] border border-slate-800 rounded-xl p-6 hover:border-blue-500/50 transition-colors group cursor-pointer"
+                className="bg-[#0a0f1d] border border-slate-800 rounded-xl p-6"
               >
                 <div className="flex justify-between items-start mb-4">
                   <span className="text-xs font-bold text-blue-400 bg-blue-500/10 px-2 py-1 rounded border border-blue-500/20">
@@ -63,18 +63,13 @@ export default function BlogPage() {
                   </div>
                 </div>
                 
-                <h2 className="text-xl font-bold text-slate-200 group-hover:text-blue-400 transition-colors mb-3">
+                <h2 className="text-xl font-bold text-slate-200 mb-3">
                   {post.title}
                 </h2>
                 
-                <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+                <p className="text-slate-400 text-sm leading-relaxed">
                   {post.excerpt}
                 </p>
-
-                <div className="flex items-center text-sm font-bold text-blue-500">
-                  <Terminal className="w-4 h-4 mr-2" />
-                  READ_LOG
-                </div>
               </motion.div>
             ))}
           </div>
