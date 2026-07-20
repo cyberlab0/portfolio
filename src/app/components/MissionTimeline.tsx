@@ -22,9 +22,9 @@ export default function MissionTimeline() {
       bg: "bg-green-500/10"
     },
     {
-      date: "2024",
+      date: "2026",
       title: "SOC Analyst Training",
-      description: "Mastered packet analysis, incident response, and threat hunting methodologies.",
+      description: "Currently mastering packet analysis, incident response, and threat hunting methodologies.",
       icon: ShieldCheck,
       color: "text-purple-500",
       bg: "bg-purple-500/10"
