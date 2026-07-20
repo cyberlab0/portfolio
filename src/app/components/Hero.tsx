@@ -58,7 +58,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-col md:flex-row items-center justify-center gap-4 text-xl md:text-2xl font-mono text-slate-300 mb-8"
         >
-          <span className="text-blue-400">SOC Analyst</span>
+          <span className="text-blue-400">AI Automation Engineer</span>
           <span className="hidden md:inline text-slate-600">|</span>
           <span className="text-purple-400">Cybersecurity Engineer</span>
           <span className="hidden md:inline text-slate-600">|</span>

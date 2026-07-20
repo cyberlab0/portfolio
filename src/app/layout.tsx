@@ -20,12 +20,12 @@ import AIAssistant from "./components/AIAssistant";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://portfolio-v0rz.onrender.com'),
-  title: "Michael Olowoselu | SOC Analyst & Cybersecurity Engineer",
-  description: "Portfolio of Michael Olowoselu, SOC Analyst, Cybersecurity Engineer, and Founder of SentraLog. Building intelligent security systems and AI-powered tools.",
-  keywords: ["SOC Analyst", "Cybersecurity Engineer", "SIEM Developer", "Michael Olowoselu", "SentraLog", "Infosec"],
+  title: "Michael Olowoselu | AI Automation Engineer & Cybersecurity",
+  description: "Portfolio of Michael Olowoselu, AI Automation Engineer, Cybersecurity Engineer, and Founder of SentraLog. Building intelligent security systems and AI-powered tools.",
+  keywords: ["AI Automation Engineer", "Cybersecurity Engineer", "SIEM Developer", "Michael Olowoselu", "SentraLog", "Infosec"],
   openGraph: {
-    title: "Michael Olowoselu | SOC Analyst & Cybersecurity Engineer",
-    description: "Portfolio of Michael Olowoselu, SOC Analyst, Cybersecurity Engineer, and Founder of SentraLog.",
+    title: "Michael Olowoselu | AI Automation Engineer & Cybersecurity",
+    description: "Portfolio of Michael Olowoselu, AI Automation Engineer, Cybersecurity Engineer, and Founder of SentraLog.",
     url: 'https://portfolio-v0rz.onrender.com',
     siteName: 'Michael Olowoselu Portfolio',
     images: [
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Michael Olowoselu | Cybersecurity Engineer",
-    description: "SOC Analyst, Cybersecurity Engineer, and Founder of SentraLog.",
+    title: "Michael Olowoselu | AI Automation Engineer",
+    description: "AI Automation Engineer, Cybersecurity Engineer, and Founder of SentraLog.",
     images: ['/favicon.ico'],
   },
 };

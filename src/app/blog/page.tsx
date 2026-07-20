@@ -11,24 +11,24 @@ export default function BlogPage() {
   const posts = [
     {
       id: "001",
-      title: "Analyzing APT29 Defense Evasion Techniques",
-      date: "2024-11-20",
-      excerpt: "A deep dive into how APT29 uses compromised credentials and sneaky execution to bypass EDR.",
-      category: "THREAT_HUNTING"
+      title: "How I Built My SIEM Tool",
+      date: "2026-07-12",
+      excerpt: "A deep dive into the architecture and challenges of building SentraLog from scratch using modern web technologies.",
+      category: "ENGINEERING"
     },
     {
       id: "002",
-      title: "Building a SOC from Scratch",
-      date: "2024-10-15",
-      excerpt: "The architecture behind SentraLog and how to build resilient SIEM infrastructure.",
-      category: "ARCHITECTURE"
+      title: "The Future of AI Automations",
+      date: "2026-06-28",
+      excerpt: "How neural networks and intelligent agents are completely revolutionizing security engineering and automated workflows.",
+      category: "AI_ENGINEERING"
     },
     {
       id: "003",
-      title: "Zero Trust and the AI Future",
-      date: "2024-09-02",
-      excerpt: "How neural networks (like VELA) will completely automate IAM and zero-trust policies.",
-      category: "AI_SECURITY"
+      title: "How Threat Detection Works",
+      date: "2026-05-15",
+      excerpt: "Understanding the underlying mechanics of pattern matching, anomaly detection, and heuristic analysis in cybersecurity.",
+      category: "TECHNICAL"
     }
   ];
 

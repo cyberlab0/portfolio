@@ -9,21 +9,21 @@ export default function BlogPreview() {
     {
       title: "How I Built My SIEM Tool",
       excerpt: "A deep dive into the architecture and challenges of building SentraLog from scratch using modern web technologies.",
-      date: "Oct 12, 2023",
+      date: "Jul 12, 2026",
       readTime: "8 min read",
       category: "Engineering"
     },
     {
-      title: "Beginner Guide to SOC Analysis",
-      excerpt: "Essential skills, tools, and mindsets required to effectively monitor and respond to security incidents in a modern SOC.",
-      date: "Sep 28, 2023",
+      title: "The Future of AI Automations",
+      excerpt: "How neural networks and intelligent agents are completely revolutionizing security engineering and automated workflows.",
+      date: "Jun 28, 2026",
       readTime: "5 min read",
-      category: "Career"
+      category: "AI_Engineering"
     },
     {
       title: "How Threat Detection Works",
       excerpt: "Understanding the underlying mechanics of pattern matching, anomaly detection, and heuristic analysis in cybersecurity.",
-      date: "Sep 15, 2023",
+      date: "May 15, 2026",
       readTime: "6 min read",
       category: "Technical"
     }
