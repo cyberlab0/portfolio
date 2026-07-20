@@ -45,7 +45,7 @@ export default function BlogPreview() {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white">Latest Articles</h2>
           </div>
-          <Link href="#" className="hidden md:inline-flex items-center text-slate-400 hover:text-white transition-colors group">
+          <Link href="/blog" className="hidden md:inline-flex items-center text-slate-400 hover:text-white transition-colors group">
             View All Posts <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>
@@ -90,7 +90,7 @@ export default function BlogPreview() {
         </div>
         
         <div className="mt-8 text-center md:hidden">
-          <Link href="#" className="inline-flex items-center text-slate-400 hover:text-white transition-colors group">
+          <Link href="/blog" className="inline-flex items-center text-slate-400 hover:text-white transition-colors group">
             View All Posts <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

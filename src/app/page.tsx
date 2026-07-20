@@ -1,11 +1,11 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import LiveTerminal from "./components/LiveTerminal";
-import AboutSection from "./components/AboutSection";
+import LiveDashboard from "./components/LiveDashboard";
+import MissionTimeline from "./components/MissionTimeline";
 import SentraLogShowcase from "./components/SentraLogShowcase";
 import VelaShowcase from "./components/VelaShowcase";
-import SkillsSection from "./components/SkillsSection";
-import LiveLogTerminal from "./components/LiveLogTerminal";
+import MissionFiles from "./components/MissionFiles";
 import BlogPreview from "./components/BlogPreview";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
@@ -19,11 +19,11 @@ export default function Home() {
         <Navbar />
         <Hero />
         <LiveTerminal />
-        <AboutSection />
+        <LiveDashboard />
+        <MissionTimeline />
         <SentraLogShowcase />
         <VelaShowcase />
-        <LiveLogTerminal />
-        <SkillsSection />
+        <MissionFiles />
         <BlogPreview />
         <ContactSection />
         <Footer />

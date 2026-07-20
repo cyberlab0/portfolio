@@ -18,12 +18,12 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "About Me", href: "#home" },
-    { name: "SentraLog", href: "#sentralog" },
-    { name: "Vela", href: "#vela" },
-    { name: "Cyber Journal", href: "#blog" },
-    { name: "Open Source", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "About Me", href: "/#home" },
+    { name: "SentraLog", href: "/#sentralog" },
+    { name: "Vela", href: "/#vela" },
+    { name: "Cyber Journal", href: "/blog" },
+    { name: "Open Source", href: "/#projects" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (

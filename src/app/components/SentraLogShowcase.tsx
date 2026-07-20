@@ -6,6 +6,17 @@ import { ShieldAlert, Activity, Database, Bell, ExternalLink, Monitor } from "lu
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
 
+const LiveMetric = ({ min, max, suffix = "" }: { min: number, max: number, suffix?: string }) => {
+  const [value, setValue] = useState(min);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setValue(Math.floor(Math.random() * (max - min + 1) + min));
+    }, 2000);
+    return () => clearInterval(timer);
+  }, [min, max]);
+  return <>{value.toLocaleString()}{suffix}</>;
+};
+
 export default function SentraLogShowcase() {
   const images = [
     { src: '/sentralog/map.png', title: 'Global Threat Analytics', desc: 'Live geographical tracking of threat vectors and attack origins.' },
@@ -142,26 +153,49 @@ export default function SentraLogShowcase() {
             </div>
           </motion.div>
 
-          {/* Features */}
-          <div className="space-y-8">
-            <div className="grid sm:grid-cols-2 gap-6">
-              {features.map((feature, idx) => {
-                const Icon = feature.icon;
-                return (
-                  <motion.div
-                    key={feature.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="p-6 rounded-xl bg-slate-800/20 border border-slate-700/50 hover:bg-slate-800/40 transition-colors"
-                  >
-                    <Icon className={`w-8 h-8 ${feature.color} mb-4`} />
-                    <h3 className="text-lg font-bold text-slate-200 mb-2">{feature.title}</h3>
-                    <p className="text-sm text-slate-400 leading-relaxed">{feature.description}</p>
-                  </motion.div>
-                );
-              })}
+          {/* Live Simulated Metrics */}
+          <div className="space-y-6 font-mono">
+            <div className="bg-[#0F172A] border border-slate-700 rounded-xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+              <div className="flex items-center justify-between mb-6 border-b border-slate-800 pb-2">
+                <span className="text-slate-400 text-sm">SENTRALOG_TELEMETRY</span>
+                <span className="text-green-500 text-xs flex items-center gap-2"><span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> ONLINE</span>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-slate-900/50 p-4 rounded border border-slate-800">
+                  <div className="text-slate-500 text-xs mb-1">CPU LOAD</div>
+                  <div className="text-xl font-bold text-blue-400">
+                    <LiveMetric min={30} max={50} suffix="%" />
+                  </div>
+                </div>
+                <div className="bg-slate-900/50 p-4 rounded border border-slate-800">
+                  <div className="text-slate-500 text-xs mb-1">RAM USAGE</div>
+                  <div className="text-xl font-bold text-blue-400">
+                    <LiveMetric min={40} max={60} suffix="%" />
+                  </div>
+                </div>
+                <div className="bg-slate-900/50 p-4 rounded border border-slate-800">
+                  <div className="text-slate-500 text-xs mb-1">EVENTS / SEC</div>
+                  <div className="text-xl font-bold text-yellow-400">
+                    <LiveMetric min={15000} max={22000} />
+                  </div>
+                </div>
+                <div className="bg-slate-900/50 p-4 rounded border border-slate-800">
+                  <div className="text-slate-500 text-xs mb-1">ACTIVE THREATS</div>
+                  <div className="text-xl font-bold text-red-500">
+                    0
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6">
+                <div className="text-slate-500 text-xs mb-2">NETWORK TRAFFIC</div>
+                <div className="h-2 w-full bg-slate-800 rounded overflow-hidden flex">
+                  <div className="h-full bg-blue-500 animate-pulse w-[60%]"></div>
+                  <div className="h-full bg-purple-500 animate-pulse w-[30%] delay-75"></div>
+                  <div className="h-full bg-red-500 animate-pulse w-[10%] delay-150"></div>
+                </div>
+              </div>
             </div>
 
             <motion.div
